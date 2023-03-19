@@ -1,0 +1,8 @@
+node_modules
+dist
+static/images/*
+src/config/*.ts
+
+.VSCodeCounter
+
+yarn-error.log
