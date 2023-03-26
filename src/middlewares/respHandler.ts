@@ -15,7 +15,7 @@ export default function responseHandle(): (ctx: Koa.Context, next: Koa.Next) => 
     try {
       await next()
     } catch (err) {
-      console.error(`Server internal error: ${err}`)
+      console.error(`Server internal error: ${JSON.stringify(err)}`)
       const code: number = err.code ?? 500
       ctx.status = code
       ctx.body = {

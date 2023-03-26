@@ -78,7 +78,7 @@ export async function getContent(articleId: number): Promise<string | undefined>
 }
 
 export async function add(detail: ArticleDetail): Promise<void> {
-  const tagsStr = Array.isArray(detail.tags) ? detail.tags.join(',') : ''
+  const tagsStr = Array.isArray(detail.tags) ? detail.tags.join(',') : detail.tags
   try {
     await query()
       .insertInto('blog.article')
@@ -89,6 +89,7 @@ export async function add(detail: ArticleDetail): Promise<void> {
         author: detail.author,
         category: detail.category,
         creation_time: detail.creationTime,
+        introduce: detail.introduce,
         tags: tagsStr
       })
       .end()
